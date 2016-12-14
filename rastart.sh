@@ -41,18 +41,18 @@ echo "Done."
 
 # Install CMake
 echo "Installing CMake."
-sudo apt-get install build-essential cmake pkg-config
+sudo apt-get install build-essential cmake pkg-config git
 echo "Done."
 
 # Install gcc 6.1 & fortran
-echo "Installing gcc 6.1 and fortran compiler."
-sudo perl -pi -e 's/jessie/stretch/g' /etc/apt/sources.list
-sudo apt-get update
-sudo apt-get install gcc-6 g++-6
-sudo apt-get install gfortran-6
-sudo perl -pi -e 's/stretch/jessie/g' /etc/apt/sources.list
-sudo apt-get update
-echo "Done."
+#echo "Installing gcc 6.1 and fortran compiler."
+#sudo perl -pi -e 's/jessie/stretch/g' /etc/apt/sources.list
+#sudo apt-get update
+#sudo apt-get install gcc-6 g++-6
+#sudo apt-get install gfortran-6
+#sudo perl -pi -e 's/stretch/jessie/g' /etc/apt/sources.list
+#sudo apt-get update
+#echo "Done."
 
 # Install Python
 echo "Installing Python 2 and 3, including supporting packages."
@@ -83,7 +83,7 @@ cd ffmpeg
 ./configure --arch=armel --target-os=linux --enable-gpl --enable-libx264 --enable-nonfree  --enable-shared
 make -j4
 sudo make install
-# Install GTK
+# Install GTK (might need aptitude for this)
 sudo apt-get install libgtk2.0-dev
 # Install others
 sudo apt-get install libatlas-base-dev gfortran
