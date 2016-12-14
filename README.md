@@ -1,5 +1,5 @@
 # RasTart
-![RasTart Logo](/icon/RasTartIcon.png =250x)
+![RasTart Logo](/icon/RasTartIcon.png=250x)
 
 Shell script for setting up Raspbian for our setup
 
