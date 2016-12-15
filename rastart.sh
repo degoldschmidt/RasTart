@@ -60,6 +60,7 @@ sudo apt-get install python  python-dev python3 python3-dev # probably not requi
 sudo apt-get install python-setuptools python-pip python3-pip
 sudo apt-get install ipython
 sudo pip install numpy scipy matplotlib
+sudo pip3 install numpy scipy matplotlib
 sudo pip install https://github.com/sightmachine/SimpleCV/zipball/master
 sudo pip install svgwrite
 echo "Done."
@@ -75,16 +76,16 @@ sudo apt-get install libmp3lame-dev libopus-dev autoconf libtool checkinstall li
 git clone --depth 1 git://git.videolan.org/x264
 cd x264
 ./configure --host=arm-unknown-linux-gnueabi --enable-static --disable-opencl --enable-shared
-make -j4
+make -j4 && echo OK || echo Failed
 sudo make install
 # build and make ffmpeg
 git clone --depth=1 git://source.ffmpeg.org/ffmpeg.git
 cd ffmpeg
 ./configure --arch=armel --target-os=linux --enable-gpl --enable-libx264 --enable-nonfree  --enable-shared
-make -j4
+make -j4 && echo OK || echo Failed
 sudo make install
 # Install GTK (might need aptitude for this)
-sudo apt-get install libgtk2.0-dev
+sudo apt-get install libgtk2.0-dev && echo OK || echo Failed
 # Install others
 sudo apt-get install libatlas-base-dev gfortran
 echo "Done."
@@ -98,8 +99,8 @@ echo "Done."
 # Install OpenCV 3.1
 echo "Installing OpenCV 3.1."
 cd ~
-wget -O opencv.zip https://github.com/Itseez/opencv/archive/3.1.0.zip
-wget -O opencv_contrib.zip https://github.com/Itseez/opencv_contrib/archive/3.1.0.zip
+wget -O opencv.zip https://github.com/Itseez/opencv/archive/3.1.0.zip && echo OK || echo Failed
+wget -O opencv_contrib.zip https://github.com/Itseez/opencv_contrib/archive/3.1.0.zip && echo OK || echo Failed
 unzip opencv_contrib.zip
 unzip opencv.zip
 #build
@@ -120,7 +121,7 @@ cmake -D CMAKE_BUILD_TYPE=RELEASE \
 	-D ENABLE_NEON=ON \
 	-D WITH_LIBV4L=ON \
         ../
-make -j4
+make -j4 && echo OK || echo Failed
 sudo make install
 sudo ldconfig
 echo "Done."
