@@ -21,6 +21,9 @@ echo "-------------------------------------------------"
 #sudo raspi-config
 #sudo reboot
 
+# Exit if any command fails
+set -e
+
 # Remove unnecessary packages (wolfram, etc) and clean up
 echo "Removing unnecessary packages and cleaning up."
 sudo apt-get purge wolfram-engine sonic-pi scratch nuscratch smartsim penguinspuzzle minecraft-pi python-minecraftpi python3-minecraftpi 
@@ -30,19 +33,18 @@ sudo apt-get clean
 sudo apt-get autoremove
 rm /home/pi/python_games/*
 rmdir /home/pi/python_games/
-echo "Done."
+echo "================= Cleaning up done."
 
 # Initial preparation
 echo "Update package repository information."
 sudo apt-get update
 sudo apt-get upgrade
 sudo easy_install -U distribute
-echo "Done."
 
 # Install CMake
 echo "Installing CMake."
 sudo apt-get install build-essential cmake pkg-config git
-echo "Done."
+echo "================= CMake done."
 
 # Install gcc 6.1 & fortran
 #echo "Installing gcc 6.1 and fortran compiler."
@@ -56,14 +58,12 @@ echo "Done."
 
 # Install Python
 echo "Installing Python 2 and 3, including supporting packages."
-sudo apt-get install python  python-dev python3 python3-dev # probably not required
-sudo apt-get install python-setuptools python-pip python3-pip
-sudo apt-get install ipython
+sudo apt-get install python  python-dev python3 python3-dev python-setuptools python-pip python3-pip ipython
 sudo pip install numpy scipy matplotlib
 sudo pip3 install numpy scipy matplotlib
 sudo pip install https://github.com/sightmachine/SimpleCV/zipball/master
 sudo pip install svgwrite
-echo "Done."
+echo "================= Python done."
 
 # Install Image I/O's
 echo "Installing multimedia packages, including ffmpeg."
@@ -88,13 +88,13 @@ sudo make install
 sudo apt-get install libgtk2.0-dev && echo OK || echo Failed
 # Install others
 sudo apt-get install libatlas-base-dev gfortran
-echo "Done."
+echo "================= Multimedia support done."
 
 # Enable kernel
 echo "Enabling kernel."
 sudo modprobe bcm2835-v4l2
 v4l2-ctl --list-devices
-echo "Done."
+echo "================= Video kernel done."
 
 # Install OpenCV 3.1
 echo "Installing OpenCV 3.1."
@@ -124,7 +124,7 @@ cmake -D CMAKE_BUILD_TYPE=RELEASE \
 make -j4 && echo OK || echo Failed
 sudo make install
 sudo ldconfig
-echo "Done."
+echo "================= OpenCV done."
 echo "-------------------------------------------------"
 echo "RasTart done."
 echo "-------------------------------------------------"
