@@ -38,16 +38,16 @@ v1.0: first working version
 * OpenCV 3.1
 * pkg-config
 * python
-** numpy
-** scipy
-** matplotlib
+    * numpy
+    * scipy
+    * matplotlib
 * python-dev
 * python-pip
 * python-setuptools
 * python3 
-** numpy
-** scipy
-** matplotlib
+    * numpy
+    * scipy
+    * matplotlib
 * python3-dev
 * python3-pip
 * x264
