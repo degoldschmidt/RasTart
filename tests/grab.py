@@ -18,6 +18,7 @@ else:
             break;
 
         cv2.imshow('Live',frame)
+        fps.update()
         if cv2.waitKey(1) >= 0:
            break
     print('Closing the camera')
