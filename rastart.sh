@@ -63,6 +63,10 @@ sudo pip install numpy scipy matplotlib
 sudo pip3 install numpy scipy matplotlib
 sudo pip install https://github.com/sightmachine/SimpleCV/zipball/master
 sudo pip install svgwrite
+sudo pip install imutils
+sudo pip3 install imutils
+sudo pip install --upgrade imutils
+sudo pip3 install --upgrade imutils
 echo "================= Python done."
 
 # Install Image I/O's
