@@ -17,7 +17,7 @@ else:
             print('ERROR: Unable to grab from the camera')
             break;
 
-        cv2.imshow('Live',frame)
+        cv2.imshow('Live ({:.2f})'.format(fps.fps()),frame)
         fps.update()
         if cv2.waitKey(1) >= 0:
            break
