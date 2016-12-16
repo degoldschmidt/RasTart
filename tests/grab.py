@@ -17,9 +17,9 @@ else:
             print('ERROR: Unable to grab from the camera')
             break;
 
-        fpsstring = str("{:.2f}".format(fps.elapsed()))
-        cv2.imshow('Live ' + fpsstring,frame)
         fps.update()
+        fpsstring = str("{:.2f}".format(fps.fps()))
+        cv2.imshow('Live ' + fpsstring,frame)
         if cv2.waitKey(1) >= 0:
            break
     print('Closing the camera')
